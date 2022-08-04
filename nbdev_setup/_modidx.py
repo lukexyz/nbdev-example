@@ -29,6 +29,8 @@ d = { 'settings': { 'audience': 'Developers',
   'syms': { 'nbdev_setup.core': { 'nbdev_setup.core.Card': 'https://lukexyz.github.io/nbdev_setup/core.html#card',
                                   'nbdev_setup.core.Deck': 'https://lukexyz.github.io/nbdev_setup/core.html#deck',
                                   'nbdev_setup.core.Deck.shuffle': 'https://lukexyz.github.io/nbdev_setup/core.html#deck.shuffle',
+                                  'nbdev_setup.core.Deck.take_card': 'https://lukexyz.github.io/nbdev_setup/core.html#deck.take_card',
+                                  'nbdev_setup.core.deck': 'https://lukexyz.github.io/nbdev_setup/core.html#deck',
                                   'nbdev_setup.core.hello_player': 'https://lukexyz.github.io/nbdev_setup/core.html#hello_player',
                                   'nbdev_setup.core.ranks': 'https://lukexyz.github.io/nbdev_setup/core.html#ranks',
                                   'nbdev_setup.core.suits': 'https://lukexyz.github.io/nbdev_setup/core.html#suits'}}}

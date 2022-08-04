@@ -85,7 +85,7 @@ hello_player('Luke')
 
     'Hello Luke! From 00_core.ipynb'
 
-## Cards Module
+# 🃏 Playing Cards
 
 Found in `00_core.ipynb` which compiles into `nbdev_setup/core.py`
 
@@ -93,13 +93,12 @@ Found in `00_core.ipynb` which compiles into `nbdev_setup/core.py`
 from nbdev.showdoc import *
 ```
 
-------------------------------------------------------------------------
+    The autoreload extension is already loaded. To reload it, use:
+      %reload_ext autoreload
 
-### Card
-
->      Card (rank:int, suit:int)
-
-A playing card
+``` python
+from nbdev_setup.core import Card, Deck
+```
 
 ------------------------------------------------------------------------
 
@@ -107,4 +106,59 @@ A playing card
 
 >      Deck (jokers=True)
 
-A deck of 52 cards, includes jokers by default
+A deck of 52 cards, includes jokers by default.
+
+Source code from `00_core.ipynb`
+
+``` python
+import inspect
+print(inspect.getsource(Deck))
+```
+
+    class Deck:
+        "A deck of 52 cards, includes jokers by default."
+        def __init__(self, jokers=True):
+            self.cards = [Card(suit=s, rank=r) for s in range(4) for r in range(1,14)]
+            if jokers:
+                self.cards.append(Card(suit=4, rank=None))
+                self.cards.append(Card(suit=4, rank=None))
+        def __str__(self):
+            ret = f"Deck ({len(self.cards)})\n"
+            cardlist = "".join([f"{card}; " for card in self.cards])
+            return ret + cardlist
+        __repr__ = __str__
+        def __len__(self):
+            return len(self.cards)
+        
+        def shuffle(self):
+            random.shuffle(self.cards)
+            
+        def take_card(self):
+            return self.cards.pop()
+
+# ♤ ♥ ♢ ♧ ♤ ♡ ♢ ♧
+
+``` python
+deck = Deck(jokers=True)
+deck
+```
+
+    Deck (54)
+    2♠; 3♠; 4♠; 5♠; 6♠; 7♠; 8♠; 9♠; 10♠; J♠; Q♠; K♠; A♠; 2♣; 3♣; 4♣; 5♣; 6♣; 7♣; 8♣; 9♣; 10♣; J♣; Q♣; K♣; A♣; 2♦; 3♦; 4♦; 5♦; 6♦; 7♦; 8♦; 9♦; 10♦; J♦; Q♦; K♦; A♦; 2♥; 3♥; 4♥; 5♥; 6♥; 7♥; 8♥; 9♥; 10♥; J♥; Q♥; K♥; A♥; 🃏; 🃏; 
+
+``` python
+deck.shuffle()
+```
+
+``` python
+c = deck.take_card()
+c
+```
+
+    8♦
+
+``` python
+len(deck)
+```
+
+    53
