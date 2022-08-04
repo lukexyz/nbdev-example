@@ -10,7 +10,7 @@ Youtube: https://www.youtube.com/watch?v=67FdzLSt4aA (65 mins)
 
 ## Instructions
 
-1.  **Create a new repo** on github and clone locally
+1.  Create a **new repo on github** and clone locally
 
 2.  **Install nbdev**
 
@@ -54,9 +54,9 @@ command bundles the following
 3.  🚿 nbdev_clean: Cleans your notebooks to get rid of extreanous
     output for Github
 
-📝 To build docs from notebooks (including README.md from
-`index.ipynb`)  
-\> nbdev_docs
+📝 To build docs from notebooks (including README.md from `index.ipynb`)
+
+> nbdev_docs
 
 #### Install module locally using pip:
 
@@ -64,7 +64,7 @@ command bundles the following
 !pip install -e .
 ```
 
-    Obtaining file:///D:/Python/nbdev/nbdev-setup
+    Obtaining file:///mnt/d/Python/nbdev/nbdev-setup
     Installing collected packages: nbdev-setup
       Attempting uninstall: nbdev-setup
         Found existing installation: nbdev-setup 0.0.1
@@ -84,3 +84,27 @@ hello_player('Luke')
 ```
 
     'Hello Luke! From 00_core.ipynb'
+
+## Cards Module
+
+Found in `00_core.ipynb` which compiles into `nbdev_setup/core.py`
+
+``` python
+from nbdev.showdoc import *
+```
+
+------------------------------------------------------------------------
+
+### Card
+
+>      Card (rank:int, suit:int)
+
+A playing card
+
+------------------------------------------------------------------------
+
+### Deck
+
+>      Deck (jokers=True)
+
+A deck of 52 cards, includes jokers by default
