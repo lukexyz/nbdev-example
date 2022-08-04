@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "core.html#deck",
+    "href": "core.html#deck",
+    "title": "core–Example module",
+    "section": "2. Deck",
+    "text": "2. Deck\n\n\nDeck\n\n Deck (jokers=True)\n\nA deck of 54 cards, including two jokers.\n\ndeck = Deck()\ndeck\n\nDeck (54)\n2♠; 3♠; 4♠; 5♠; 6♠; 7♠; 8♠; 9♠; 10♠; J♠; Q♠; K♠; A♠; 2♣; 3♣; 4♣; 5♣; 6♣; 7♣; 8♣; 9♣; 10♣; J♣; Q♣; K♣; A♣; 2♦; 3♦; 4♦; 5♦; 6♦; 7♦; 8♦; 9♦; 10♦; J♦; Q♦; K♦; A♦; 2♥; 3♥; 4♥; 5♥; 6♥; 7♥; 8♥; 9♥; 10♥; J♥; Q♥; K♥; A♥; 🃏; 🃏; \n\n\nShuffle deck and take a card:\n\ndeck.shuffle()\nc = deck.take_card()\nc\n\n8♠\n\n\n\nprint(deck)\n\nDeck (53)\n2♥; A♠; 4♥; 10♣; 6♥; 6♣; 🃏; 4♦; 8♥; K♦; A♣; 2♦; 3♠; 6♦; 8♦; J♣; 10♠; 7♠; 5♣; J♠; 9♣; Q♣; 2♠; 3♣; A♥; 9♥; 10♦; 5♦; 4♠; 🃏; J♥; 2♣; 7♦; Q♠; 10♥; 9♦; 9♠; Q♦; 7♥; 3♦; K♣; K♥; Q♥; 5♥; A♦; 3♥; 6♠; 7♣; 4♣; J♦; 8♣; K♠; 5♠; \n\n\n\nfor card in deck.cards[:3]:\n    print(card, card.suit, card.rank)\n\n2♥ 3 1\nA♠ 0 13\n4♥ 3 3\n\n\n\ndeck = Deck()\ndeck.shuffle()\nh1, h2, h3 = deck.draw_n(5), deck.draw_n(5), deck.draw_n(5)\nprint(h1, h2, h3, sep=\"\\n\")\n\n[5♦, J♠, 7♦, 6♣, 2♥]\n[K♥, Q♠, 🃏, 6♦, 🃏]\n[7♣, 3♦, 5♠, Q♣, 6♥]"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "📒 nbdev-setup",
+    "section": "",
+    "text": "Tutorial: https://nbdev.fast.ai/tutorial.html\nYoutube: https://www.youtube.com/watch?v=67FdzLSt4aA (65 mins)"
+  },
+  {
+    "objectID": "index.html#instructions",
+    "href": "index.html#instructions",
+    "title": "📒 nbdev-setup",
+    "section": "Instructions",
+    "text": "Instructions\n\nCreate a new repo on github and clone locally\nInstall nbdev\n\n\npip install nbdev * Linux/WSL only (as of Aug 2022)\n* Note: pip install does work on windows, but some commands (i.e. doc building with Quarto) are unix only.\n\n\nCreate 📒 nbdev project from current repo\n\n\n\nnbdev_new\n\nsettings.ini should update automatically with github config values.\n\n\nInstall git and Jupyter hooks for git-friendly notebooks\n\n\n\nnbdev_install_hooks\nnbdev_install_quarto local documents\n\nUse nbdev_help for command list\n\n\n\nimage.png"
+  },
+  {
+    "objectID": "index.html#development",
+    "href": "index.html#development",
+    "title": "📒 nbdev-setup",
+    "section": "Development",
+    "text": "Development\nQuick access command:\n\nnbdev_prepare\nnbdev_docs\ngit add -A; git commit -m’check in files’; git push\n\nRun jupyter notebook and add code using export tags\n\ni.e. 📑 [notebooks/00_core.ipynb]"
+  },
+  {
+    "objectID": "index.html#nbdev_prepare",
+    "href": "index.html#nbdev_prepare",
+    "title": "📒 nbdev-setup",
+    "section": "🏗️ nbdev_prepare",
+    "text": "🏗️ nbdev_prepare\ncommand bundles the following\n\n🏗️ nbdev_export: Builds the .py modules and library from the jupyter notebook\n🛠️ nbdev_test: Tests all your notebooks\n🚿 nbdev_clean: Cleans your notebooks to get rid of extreanous output for Github\n\n📝 To build docs from notebooks (including README.md from index.ipynb)\n\nnbdev_docs\n\n\nInstall module locally using pip:\n\n!pip install -e .\n\nObtaining file:///mnt/d/Python/nbdev/nbdev-setup\nInstalling collected packages: nbdev-setup\n  Attempting uninstall: nbdev-setup\n    Found existing installation: nbdev-setup 0.0.1\n    Uninstalling nbdev-setup-0.0.1:\n      Successfully uninstalled nbdev-setup-0.0.1\n  Running setup.py develop for nbdev-setup\nSuccessfully installed nbdev-setup-0.0.1\n\n\n\n\nTo use module inline:\n\nfrom nbdev_setup.core import *\n\n\nhello_player('Luke')\n\n'Hello Luke! From 00_core.ipynb'"
+  }
+]
