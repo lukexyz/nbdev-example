@@ -106,9 +106,10 @@ from nbdev_setup.core import Card, Deck
 
 >      Deck (jokers=True)
 
-A deck of 52 cards, includes jokers by default.
+A deck of 54 cards, including two jokers.
 
-Source code from `00_core.ipynb`
+-   Source code exported from `00_core.ipynb`
+-   Located in `core.py`
 
 ``` python
 import inspect
@@ -116,17 +117,19 @@ print(inspect.getsource(Deck))
 ```
 
     class Deck:
-        "A deck of 52 cards, includes jokers by default."
+        "A deck of 54 cards, including two jokers."
         def __init__(self, jokers=True):
             self.cards = [Card(suit=s, rank=r) for s in range(4) for r in range(1,14)]
             if jokers:
                 self.cards.append(Card(suit=4, rank=None))
                 self.cards.append(Card(suit=4, rank=None))
+                
         def __str__(self):
             ret = f"Deck ({len(self.cards)})\n"
             cardlist = "".join([f"{card}; " for card in self.cards])
             return ret + cardlist
         __repr__ = __str__
+        
         def __len__(self):
             return len(self.cards)
         
@@ -135,8 +138,16 @@ print(inspect.getsource(Deck))
             
         def take_card(self):
             return self.cards.pop()
+        
+        def draw_n(self, n:int):
+            hand = []
+            for card in range(n):
+                hand.append(self.take_card())
+            return hand
 
 # ♤ ♥ ♢ ♧ ♤ ♡ ♢ ♧
+
+#### Initialise playing deck:
 
 ``` python
 deck = Deck(jokers=True)
@@ -146,19 +157,27 @@ deck
     Deck (54)
     2♠; 3♠; 4♠; 5♠; 6♠; 7♠; 8♠; 9♠; 10♠; J♠; Q♠; K♠; A♠; 2♣; 3♣; 4♣; 5♣; 6♣; 7♣; 8♣; 9♣; 10♣; J♣; Q♣; K♣; A♣; 2♦; 3♦; 4♦; 5♦; 6♦; 7♦; 8♦; 9♦; 10♦; J♦; Q♦; K♦; A♦; 2♥; 3♥; 4♥; 5♥; 6♥; 7♥; 8♥; 9♥; 10♥; J♥; Q♥; K♥; A♥; 🃏; 🃏; 
 
-``` python
-deck.shuffle()
-```
+#### Shuffle deck and take a card:
 
 ``` python
+deck.shuffle()
 c = deck.take_card()
 c
 ```
 
-    8♦
+    9♣
+
+#### Draw hands
 
 ``` python
-len(deck)
+deck = Deck()
+deck.shuffle()
+
+h1, h2, h3 = deck.draw_n(5), deck.draw_n(5), deck.draw_n(5)
+
+print(h1, h2, h3, sep="\n")
 ```
 
-    53
+    [10♣, 9♣, 5♠, 7♦, A♣]
+    [5♥, 🃏, 2♦, 6♦, J♠]
+    [Q♠, K♣, J♣, 2♣, 🃏]
