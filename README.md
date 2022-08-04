@@ -34,9 +34,11 @@ Use `nbdev_help` for command list
 
 ## Development
 
-Quick access command: \>`nbdev_prepare`  
-\>`nbdev_docs`  
-\>git add -A; git commit -m’check in files’; git push
+Quick access command:
+
+> `nbdev_prepare`  
+> `nbdev_docs`  
+> git add -A; git commit -m’check in files’; git push
 
 Run **`jupyter notebook`** and add code using `export` tags
 

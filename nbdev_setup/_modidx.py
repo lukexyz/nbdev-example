@@ -26,4 +26,7 @@ d = { 'settings': { 'audience': 'Developers',
                 'tst_flags': 'notest',
                 'user': 'lukexyz',
                 'version': '0.0.1'},
-  'syms': {'nbdev_setup.core': {'nbdev_setup.core.hello_player': 'https://lukexyz.github.io/nbdev_setup/core.html#hello_player'}}}
+  'syms': { 'nbdev_setup.core': { 'nbdev_setup.core.Card': 'https://lukexyz.github.io/nbdev_setup/core.html#card',
+                                  'nbdev_setup.core.hello_player': 'https://lukexyz.github.io/nbdev_setup/core.html#hello_player',
+                                  'nbdev_setup.core.ranks': 'https://lukexyz.github.io/nbdev_setup/core.html#ranks',
+                                  'nbdev_setup.core.suits': 'https://lukexyz.github.io/nbdev_setup/core.html#suits'}}}
