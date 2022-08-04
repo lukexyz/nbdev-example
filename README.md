@@ -34,11 +34,29 @@ Use `nbdev_help` for command list
 
 ## Development
 
-1.  Run **`jupyter notebook`** and add code using `export` tags
+Quick access command: \>`nbdev_prepare`  
+\>`nbdev_docs`  
+\>git add -A; git commit -m’check in files’; git push
+
+Run **`jupyter notebook`** and add code using `export` tags
 
 -   i.e. 📑 \[notebooks/00_core.ipynb\]
 
-Install module locally using pip
+## 🏗️ `nbdev_prepare`
+
+command bundles the following
+
+1.  🏗️ nbdev_export: Builds the .py modules and library from the jupyter
+    notebook
+2.  🛠️ nbdev_test: Tests all your notebooks
+3.  🚿 nbdev_clean: Cleans your notebooks to get rid of extreanous
+    output for Github
+
+📝 To build docs from notebooks (including README.md from
+`index.ipynb`)  
+\> nbdev_docs
+
+#### Install module locally using pip:
 
 ``` python
 !pip install -e .
@@ -52,3 +70,15 @@ Install module locally using pip
           Successfully uninstalled nbdev-setup-0.0.1
       Running setup.py develop for nbdev-setup
     Successfully installed nbdev-setup-0.0.1
+
+#### To use module inline:
+
+``` python
+from nbdev_setup.core import *
+```
+
+``` python
+hello_player('Luke')
+```
+
+    'Hello Luke! From 00_core.ipynb'
